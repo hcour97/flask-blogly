@@ -1,0 +1,15 @@
+{% extends base.html %}
+
+<h1>Hello, {{user.first_name}}</h1>
+  <ul>
+    <img src="{{img_url}}">
+    <li>ID: {{user.id}}</li>
+    <li>First Name: {{user.first_name}}</li>
+    <li>Last Name: {{user.last_name}}</li>
+    <li>Species: <a href="/species/{{pet.species}}">{{pet.species}}</a> </li>
+    <li>Hunger: {{pet.hunger}}</li>
+  </ul>
+  <blockquote>
+    {{pet.greet()}}
+  </blockquote>
+  <a href="/">Go Back</a>
