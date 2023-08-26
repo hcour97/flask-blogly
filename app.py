@@ -188,11 +188,11 @@ def process_new_tag():
 
     post_ids = [int(num) for num in request.form.getlist("posts")]
     posts = Post.query.filter(Post.id.in_(post_ids)).all()
-    new_tag = Tag(name=request.form("name"), posts=posts)
+    new_tag = Tag(name=request.form['name'], posts=posts)
 
     db.session.add(new_tag)
     db.session.commit()
-    flash(f"Tag '{new_tag.name}' added.")
+    # flash(f"Tag '{new_tag.name}' added.")
 
     return redirect('/tags')
 
@@ -217,7 +217,7 @@ def process_tag_edit(tag_id):
 
     return redirect("/tags")
 
-@app.route('tags/<int:tag_id>/delete', methods=["POST"])
+@app.route('/tags/<int:tag_id>/delete', methods=["POST"])
 def delete_tag(tag_id):
     """Handle form submission to delete an existing tag."""
 
